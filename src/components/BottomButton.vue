@@ -22,4 +22,12 @@
         border: solid 4px #2183b0;
         font-size: 32px;
     }
+
+    @media only screen and (max-height: 875px)  {
+        .bottomButton{
+            width:135px;
+            height:50px;
+            font-size:20px;
+        }
+    }
 </style>

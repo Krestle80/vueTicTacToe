@@ -125,12 +125,12 @@ export default {
         <div class = "col1">
           <div class="tileHolder">
             <div v-for="(tile, index) in board.cells[0]" :key="index">
-              <button v-if="tile === ''" class = 'empty' @click="placeTac(0,index)" >
+              <button v-if="tile === ''" class = 'empty tile' @click="placeTac(0,index)" >
               </button>
-              <div v-else-if="tile === 'x'" class = 'x'>
+              <div v-else-if="tile === 'x'" class = 'tile'>
                 <font-awesome-icon :icon="['fas', 'x']" size="6x" />
               </div>
-              <div v-else class = 'o'>
+              <div v-else class = 'tile'>
                 <font-awesome-icon :icon="['fas', 'o']" size="6x" />
               </div>
             </div>
@@ -140,12 +140,12 @@ export default {
         <div class = "col2">
           <div class="tileHolder">
             <div v-for="(tile, index) in board.cells[1]" :key="index">
-              <button v-if="tile === ''" class = 'empty' @click="placeTac(1,index)" >
+              <button v-if="tile === ''" class = 'empty tile' @click="placeTac(1,index)" >
               </button>
-              <div v-else-if="tile === 'x'" class = 'x'>
+              <div v-else-if="tile === 'x'" class = 'tile'>
                 <font-awesome-icon :icon="['fas', 'x']" size="6x" />
               </div>
-              <div v-else class = 'o'>
+              <div v-else class = 'tile'>
                 <font-awesome-icon :icon="['fas', 'o']" size="6x" />
               </div>
             </div>
@@ -156,12 +156,12 @@ export default {
         <div class = "col3">
           <div class="tileHolder">
             <div v-for="(tile, index) in board.cells[2]" :key="index">
-              <button v-if="tile === ''" class = 'empty' @click="placeTac(2,index)" >
+              <button v-if="tile === ''" class = 'empty tile' @click="placeTac(2,index)" >
               </button>
-              <div v-else-if="tile === 'x'" class = 'x'>
+              <div v-else-if="tile === 'tile'" class = 'tile'>
                 <font-awesome-icon :icon="['fas', 'x']" size="6x" />
               </div>
-              <div v-else class = 'o'>
+              <div v-else class = 'tile'>
                 <font-awesome-icon :icon="['fas', 'o']" size="6x" />
               </div>
             </div>
@@ -178,7 +178,7 @@ export default {
 
 #app {
   width: 100%;
-  height: 200%;
+  height: 100%;
   font-weight: normal;
   display: flex;
   justify-content: center;
@@ -188,9 +188,9 @@ export default {
   flex-direction: column;
 }
 #titleHolder {
+  height:20%;
   display: flex;
   justify-content: center;
-  height:20%;
 
 }
 .title{
@@ -200,44 +200,26 @@ export default {
 .gameBoard {
   width: 700px;
   height: 100%;
+  padding: 10px;
   display: grid;
   gap: 10px;
-  padding: 10px;
+}
+.tile{
+  height: 200px;
+  width: 200px;
+  border-radius: 15px;
+  margin-bottom: 25px;
+  margin-bottom: 25px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aquamarine;
+  color:#2183b0;
+}
+.empty{
+  border: solid 5px wheat;
 }
 
-.empty{
-  background-color: aquamarine;
-  height: 200px;
-  width: 200px;
-  margin-bottom: 25px;
-  margin-bottom: 25px;
-  border: solid 5px wheat;
-  border-radius: 15px;
-}
-.x{
-  background-color: aquamarine;
-  height: 200px;
-  width: 200px;
-  margin-bottom: 25px;
-  margin-bottom: 25px;
-  color:#2183b0;
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 15px;
-}
-.o{
-  background-color: aquamarine;
-  height: 200px;
-  width: 200px;
-  margin-bottom: 25px;
-  margin-bottom: 25px;
-  color:#2183b0;
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 15px;
-}
 
 
 .col1 {
@@ -260,5 +242,29 @@ export default {
   align-items: center;
 }
 
-@media only screen and (max-height: 600px) 
+@media only screen and (max-height: 875px)  {
+  .title{
+    font-size:60px;
+  }
+  .gameBoard{
+    width:500px;
+    gap:7px;
+  }
+  .tile{
+    width:150px;
+    height:150px;
+  }
+
+}
+@media only screen and (max-height: 600px)  {
+  .gameBoard{
+    width:300px;
+    padding:0px;
+    gap:0px;
+  }
+  .tile{
+    width:100px;
+    height:100px;
+  }
+}
 </style>
