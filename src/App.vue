@@ -267,4 +267,28 @@ export default {
     height:100px;
   }
 }
+@media only screen and (max-width: 875px)  {
+  .title{
+    font-size:60px;
+  }
+  .gameBoard{
+    width:500px;
+    gap:7px;
+  }
+  .tile{
+    width:150px;
+    height:150px;
+  }
+@media only screen and (max-width: 400px)  {
+  .gameBoard{
+    width:300px;
+    padding:0px;
+    gap:0px;
+  }
+  .tile{
+    width:100px;
+    height:100px;
+  }
+}
+}
 </style>

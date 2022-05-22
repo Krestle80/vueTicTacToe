@@ -30,4 +30,11 @@
             font-size:20px;
         }
     }
+        @media only screen and (max-width: 400px)  {
+        .bottomButton{
+            width:75px;
+            height:70px;
+            font-size:15px;
+        }
+    }
 </style>
