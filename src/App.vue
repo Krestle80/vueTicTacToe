@@ -57,17 +57,13 @@ export default {
       }
       //places Tac where player clicked
       this.board.claimTile(col, row, this.playerTac)
-      console.log(this.board.threeInRow(this.playerTac))
       if(this.board.threeInRow(this.playerTac)){
         this.winner = this.playerTac
-        console.log('w')
         return
       }
       if(checkFullBoard())this.winner = 'none'
       let miniMaxed = this.miniMax(this.board.copyBoard(), this.aiTac)
-      console.log(miniMaxed)
       this.board.claimTile(Number(miniMaxed.move.col), Number(miniMaxed.move.row), this.aiTac)
-      console.log(miniMaxed)
       this.$forceUpdate()
       if(this.board.threeInRow(this.aiTac)){
         this.winner = this.aiTac
@@ -81,7 +77,6 @@ export default {
       if (board.threeInRow(this.playerTac)|| board.threeInRow(this.aiTac)) {
         let swapSign = 1
         if(board.threeInRow(this.playerTac)) swapSign -=2
-        console.log(board.scoreGameState())
         return {
           score: (100 + depth)*swapSign,
           move: null
@@ -122,7 +117,7 @@ export default {
 
       <h1 v-if="winner === playerTac" class="title">You Win</h1> 
       <h1 v-else-if="winner === aiTac" class="title">You Lose</h1>
-      <h1 v-else-if="winner === 'none'" class="title">You Lose</h1>  
+      <h1 v-else-if="winner === 'none'" class="title">Draw</h1>  
       <h1 v-else class="title">Tic Tac Toe</h1> 
     </div>
     <main>
@@ -264,4 +259,6 @@ export default {
   flex-direction: column;
   align-items: center;
 }
+
+@media only screen and (max-height: 600px) 
 </style>
